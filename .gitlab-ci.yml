@@ -22,11 +22,9 @@ test_async:
    - npm install
    - cd ../
 
-test_e2e: 
+test_ng: 
   script:
    - cd ./front/
    - npm install
-   - npm install -g @angular/cli
-   - ng e2e
-
+   - ./node_modules/@angular/cli/bin/ng test --single-run=true --browsers PhantomJS --watch=false
 
