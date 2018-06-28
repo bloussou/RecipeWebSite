@@ -16,7 +16,7 @@ cache:
   - ./front/node_modules/
   - ./back/node_modules/
 
-test_async:
+test_back:
   script:
    - cd ./back/
    - npm install
@@ -26,11 +26,5 @@ test_ng:
   script:
    - cd ./front/
    - npm install
-   - ./node_modules/@angular/cli/bin/ng test --single-run=true --browsers PhantomJS --watch=false
-   - cd ../
-test_e2e:
-  script:
-   - cd ./front/
-   - npm install
-   - ./node_modules/@angular/cli/bin/ng e2e --single-run=true --browsers PhantomJS --watch=false
+   - ./node_modules/@angular/cli/bin/ng serve --single-run=true --browsers PhantomJS --watch=false
    - cd ../

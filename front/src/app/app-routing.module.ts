@@ -6,8 +6,9 @@ import { RecipeDisplayComponent } from './recipe-display/recipe-display.componen
 import { SearchComponent } from './search/search.component';
 import { SearchDisplayComponent } from './search-display/search-display.component';
 import { ModifRecipeComponent } from './modif-recipe/modif-recipe.component';
-
+import { ChatComponent } from './chat/chat.component';
 const routes: Routes = [
+  {path: 'chat', component: ChatComponent},
   {path: 'newrecipe', component: NewRecipeComponent},
   {path: 'allrecipe', component: DisplayComponent},
   {path: 'recipe/:id', component: RecipeDisplayComponent },

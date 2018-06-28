@@ -5,13 +5,13 @@ let express = require('express'),
     search = require('./routes/search'),
     ip = require('ip');
 
-console.log(ip.address);
-
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/recipes') //localhost/recipes
   .then(() =>  console.log('connection succesful bravo !')) //192.168.99.100:32768
   .catch((err) => console.error(err));
+
+
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');

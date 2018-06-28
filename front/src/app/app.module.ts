@@ -16,6 +16,7 @@ import { NouisliderModule } from 'ng2-nouislider';
 import { SearchDisplayComponent } from './search-display/search-display.component';
 import { SearchService } from './search.service';
 import { ModifRecipeComponent } from './modif-recipe/modif-recipe.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 
@@ -29,7 +30,8 @@ import { ModifRecipeComponent } from './modif-recipe/modif-recipe.component';
     RecipeDisplayComponent,
     SearchComponent,
     SearchDisplayComponent,
-    ModifRecipeComponent
+    ModifRecipeComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
