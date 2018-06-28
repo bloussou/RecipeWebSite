@@ -26,5 +26,5 @@ test_ng:
   script:
    - cd ./front/
    - npm install
-   - ./node_modules/@angular/cli/bin/ng serve --single-run=true --browsers PhantomJS --watch=false
+   - ./node_modules/@angular/cli/bin/ng build --single-run=true --browsers PhantomJS --watch=false
    - cd ../
