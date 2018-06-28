@@ -11,7 +11,7 @@
         "socket.io": "^2.1.1"
     },
     "scripts": {
-        "start": "node app.js"
+        "start_ci": "node app_ci.js"
     },
     "author": "Pierre Averous <piaverous@gmail.com>",
     "description": "Une site de gestion de BDD de recettes de cuisine"
