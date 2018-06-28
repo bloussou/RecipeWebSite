@@ -8,7 +8,9 @@ ip = require('ip');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://mongo:27017/recipes') //localhost/recipes
-.then(() =>  console.log('connection succesful bravo !')) //192.168.99.100:32768
+.then(() =>  {
+    console.log('connection succesful bravo !');
+    return true; }) //192.168.99.100:32768  
 .catch((err) => console.error(err));
 
 
@@ -26,4 +28,6 @@ app.use('/search', search);
 app.use('/recipes', recipes);
 
 app.listen(8080);
+
+
 
