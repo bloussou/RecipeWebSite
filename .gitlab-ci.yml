@@ -20,6 +20,7 @@ test_back:
   script:
    - cd ./back/
    - npm install
+   - node app.js
    - cd ../
 
 test_ng: 
