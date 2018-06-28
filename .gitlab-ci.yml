@@ -21,6 +21,7 @@ test_back:
    - cd ./back/
    - npm install
    - npm start
+   - npm install
    - cd ../
 
 test_ng: 
