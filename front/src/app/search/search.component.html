@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<div class="container">
+    <h1>Recherche avancée</h1>
+  
+    <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+      <div class="form-group">
+        <label for="nom">Nom de la recette</label>
+        <input type="text" class="form-control" id="nom" required name="nom" placeholder="Recherche..." [(ngModel)]="search.name">
+      </div>
+  
+      <div class="form-group">
+        <label for="someRange">Durée de préparation</label>
+        <div class="slidecontainer">
+            <p>{{search.durationRange[0]}}min</p>
+            <nouislider [min]="5" [max]="180" [step]="5" [(ngModel)]="search.durationRange" name="nouislider"></nouislider> 
+            <p>{{search.durationRange[1]}}min</p>
+        </div>
+      </div>
+
+      
+  
+      <div class="form-group">  
+        <label for="difficulte">Difficulté</label>
+        <label class = "containerCB" *ngFor="let diff of difficulties">{{diff}}
+            <input type="checkBox" name="diff" class="realCheckbox" [checked]="diffChecks[diff.length-1]" 
+                    [value]="diff.length" 
+                    (change)="diffChecks[diff.length-1] = !diffChecks[diff.length-1]; checkboxClick(diffChecks[diff.length-1], diff.length)">
+            <span class="checkmark"></span>
+        </label>
+  
+      </div>
+  
+      <div class="form-group">
+        <label for="origine">Origine</label>
+        <select class="form-control"  name="origin" [(ngModel)]="search.origin">
+          <option value="" disabled="disabled" selected="selected">Choisissez une origine</option>
+          <option *ngFor="let ctr of countries" [value]="ctr" name="ctr">{{ctr}}</option>
+        </select>    
+      </div>
+  
+      <div class="form-group">
+        <label for="plat">Type de plat</label>
+        <select class="form-control"  name="type" [(ngModel)]="search.type">
+          <option value="" disabled="disabled" selected="selected">Choisissez un type de plat</option>
+          <option *ngFor="let plat of dishtypes" [value]="plat" name="plat">{{plat}}</option>
+        </select>    
+      </div>
+  
+      <button type="submit" class="btn btn-success" (click)="searchDone();" routerLink="/searchResults">Submit</button>
+  
+    </form>
+  </div>
+
+  

@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(~bootstrap/dist/css/bootstrap.css);
+@import url(~nouislider/distribute/nouislider.min.css);
+body {
+  font-family: arial;
+  background: #92caff; }
+
+html, body, ul, ol, li, form, fieldset, legend {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0; }
+
+fieldset, img {
+  border: 0; }
+
+li {
+  list-style: none; }
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+title {
+  font-style: ""; }
+
+#head-title {
+  text-transform: uppercase;
+  text-align: center;
+  font-style: bold;
+  color: #ff5f5f; }
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  list-style: none; }
+
+#main-nav {
+  width: 100%;
+  background-color: #333;
+  overflow: hidden;
+  height: 50px; }
+  #main-nav a {
+    float: left;
+    color: #c5e3ff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px; }
+    #main-nav a:hover {
+      background-color: #c5e3ff;
+      color: #333; }
+  #main-nav:active {
+    background-color: #ddd;
+    color: black; }
+
+#searchbar {
+  text-align: center; }
+  #searchbar form {
+    width: 500px; }
+  #searchbar .search {
+    padding: 8px 15px;
+    background: #c5e3ff;
+    border: 0px solid #92caff;
+    border-radius: 5px 0px 0px 5px; }
+  #searchbar .button {
+    position: relative;
+    padding: 6px 15px;
+    left: -8px;
+    border: 2px solid #ffc792;
+    background-color: #ffc792;
+    color: #5fb1ff;
+    border-radius: 0px 5px 5px 0px; }
+  #searchbar .button:hover {
+    background-color: #f87900;
+    color: #ffc792; }

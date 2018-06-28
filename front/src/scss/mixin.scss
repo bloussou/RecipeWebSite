@@ -1,0 +1,29 @@
+@mixin nav{
+
+}
+
+@mixin searchbar {
+    text-align: center;
+    form {
+        width:500px;
+    }
+    .search {
+        padding:8px 15px;
+        background:lighten($color: $lightBlue, $amount: 10);
+        border:0px solid $lightBlue;
+        border-radius: 5px 0px 0px 5px;
+    }
+    .button {
+        position:relative;
+        padding:6px 15px;
+        left:-8px;
+        border:2px solid  complement($color: $lightBlue);
+        background-color: complement($color: $lightBlue) ;
+        color: darken($color: $lightBlue, $amount: 10);
+        border-radius: 0px 5px 5px 0px;
+    }
+    .button:hover  {
+        background-color: darken($color: complement($color: $lightBlue), $amount: 30);
+        color:complement($color : $lightBlue);
+    }
+}

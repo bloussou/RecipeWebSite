@@ -1,0 +1,20 @@
+.container {
+    margin-top: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #ca4747;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.element:hover{
+    cursor: pointer;
+    color: #444444;
+    background-color: rgba(255, 132, 218, 0.1)   ;
+}
+
+

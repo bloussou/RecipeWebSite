@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<div class="container">
+  <h1>Toutes les recettes</h1>
+
+  <table class="table">
+
+    <tr>
+      <th scope="col">Recette</th>
+      <th scope="col">Difficulté</th>
+      <th scope="col">Origine</th>
+      <th scope="col">Type</th>
+      <th scope="col">Temps de préparation</th>
+    </tr>
+
+    <tr *ngFor="let recipe of recipes" routerLink="/recipe/{{recipe._id}}" class="element">
+          <td>{{recipe.name}}</td>
+          <td>{{recipe.difficulty}}</td>
+          <td>{{recipe.origin}}</td>
+          <td>{{recipe.type}}</td>
+          <td>{{recipe.duration}}min</td>
+    </tr>
+  </table>
+  
+</div>
+
+
