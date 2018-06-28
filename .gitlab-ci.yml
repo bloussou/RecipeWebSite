@@ -20,7 +20,7 @@ test_back:
   script:
    - cd ./back/
    - npm install
-   - npm start_ci
+   - npm start
    - cd ../
 
 test_ng: 
