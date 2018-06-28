@@ -19,6 +19,7 @@ cache:
 test_back:
   script:
    - cd ./back/
+   - npm install
    - npm start
    - cd ../
 
