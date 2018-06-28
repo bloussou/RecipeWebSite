@@ -17,6 +17,8 @@ cache:
   - ./back/node_modules/
 
 test_back:
+  link:
+   - mongo
   script:
    - cd ./back/
    - npm install
