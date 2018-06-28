@@ -27,4 +27,10 @@ test_ng:
    - cd ./front/
    - npm install
    - ./node_modules/@angular/cli/bin/ng test --single-run=true --browsers PhantomJS --watch=false
-
+   - cd ../
+test_e2e:
+  script:
+   - cd ./front/
+   - npm install
+   - ./node_modules/@angular/cli/bin/ng e2e --single-run=true --browsers PhantomJS --watch=false
+   - cd ../
