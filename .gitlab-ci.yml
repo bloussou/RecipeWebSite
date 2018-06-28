@@ -26,6 +26,7 @@ test_e2e:
   script:
    - cd ./front/
    - npm install
-   - ./node_modules/@angular/cli/bin/ng e2e
+   - npm install -g @angular/cli
+   - ng e2e
 
 
