@@ -22,7 +22,7 @@ cache:
 #    - npm install
 #    - npm build
 #    - cd ../
-# c'est de la ***
+# c'est de la ***   
 
 test_ng: 
   script:
