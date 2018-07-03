@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {RecipeService} from '../recipe.service';
+import { RecipeService } from '../recipe.service';
 import { Recette } from '../recette';
+import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { of } from 'rxjs/observable/of';
+
 
 @Component({
   selector: 'app-recipe-display',
@@ -12,6 +15,7 @@ import { Router } from '@angular/router';
 export class RecipeDisplayComponent implements OnInit {
 
   recipe = new Recette();
+  name: String;
 
   constructor(
     private recipeService: RecipeService,
@@ -21,6 +25,11 @@ export class RecipeDisplayComponent implements OnInit {
 
   ngOnInit() {
     this.getRecipe();
+    this.getRecipeName();
+  }
+
+  sendRecette(): Observable<Recette> {
+    return Observable.of(this.recipe);
   }
 
   getRecipe(): void {
@@ -28,6 +37,14 @@ export class RecipeDisplayComponent implements OnInit {
     this.recipeService.getRecipe(_id)
       .subscribe(recipe => this.recipe = recipe);
   }
+
+  getRecipeName(): void {
+    const _id = this.route.snapshot.paramMap.get('id');
+    this.recipeService.getRecipe(_id)
+      .subscribe(recipe => this.name = recipe.name);
+  }
+
+
 
   delRecipe(): void {
     if (confirm('Êtes-vous sur de vouloir supprimer cette recette ?')) {
@@ -39,10 +56,10 @@ export class RecipeDisplayComponent implements OnInit {
           }
         },
         response => {
-            console.log('DEL call in error', response);
+          console.log('DEL call in error', response);
         },
         () => {
-            console.log('The DEL observable is now completed.');
+          console.log('The DEL observable is now completed.');
         }
       );
     }

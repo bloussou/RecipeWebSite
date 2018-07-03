@@ -16,13 +16,12 @@ cache:
   - ./front/node_modules/
   - ./back/node_modules/
 
-test_back:
-  script:
-   - cd ./back/
-   - npm install
-   - npm start
-   - npm install
-   - cd ../
+# test_back:
+#   script:
+#    - cd ./back/
+#    - npm install
+#    - npm build
+#    - cd ../
 
 test_ng: 
   script:

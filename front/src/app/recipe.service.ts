@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -23,35 +23,37 @@ export class RecipeService {
   ) { }
 
   getRecipes(): Observable<Recette[]> {
-    return this.http.get<Recette[]>('http://localhost:8080/recipes/api/allrecipes');
+    return this.http.get<Recette[]>('http://192.168.99.100:8080/recipes/api/allrecipes');
   }
 
   getRecipe(_id: string): Observable<Recette> {
     // TODO: send the message _after_ fetching the hero
     this.log(`fetched recipe id=${_id}`);
-    return this.http.get<Recette>('http://localhost:8080/recipes/api/recipe/' + _id);
+    return this.http.get<Recette>('http://192.168.99.100:8080/recipes/api/recipe/' + _id);
   }
 
+
+
   updateRecipe(recipe: Recette): Observable<Recette> {
-    return this.http.put<Recette>('http://localhost:8080/recipes/api/updaterecipe/' + recipe._id, recipe, httpOptions)
-    .pipe(
+    return this.http.put<Recette>('http://192.168.99.100:8080/recipes/api/updaterecipe/' + recipe._id, recipe, httpOptions)
+      .pipe(
       catchError(this.handleError<Recette>('updateRecipe'))
-    );
+      );
   }
 
   delRecipe(recipe: Recette): Observable<Recette> {
     this.log('Deleting recipe ' + recipe.name + 'from database');
-    return this.http.delete<Recette>('http://localhost:8080/recipes/api/delrecipe/' + recipe._id, httpOptions)
-    .pipe(
+    return this.http.delete<Recette>('http://192.168.99.100:8080/recipes/api/delrecipe/' + recipe._id, httpOptions)
+      .pipe(
       catchError(this.handleError<Recette>('delRecipe'))
-    );
+      );
   }
 
   addRecipe(recipe: Recette): Observable<Recette> {
     this.log('Adding new data entry to database');
-    return this.http.post<Recette>('http://localhost:8080/recipes/api/postrecipe', recipe, httpOptions)
+    return this.http.post<Recette>('http://192.168.99.100:8080/recipes/api/postrecipe', recipe, httpOptions)
       .pipe(
-        catchError(this.handleError<Recette>('postrecipe', recipe))
+      catchError(this.handleError<Recette>('postrecipe', recipe))
       );
   }
 
@@ -59,7 +61,7 @@ export class RecipeService {
     console.log('RecipeService: ' + message);
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

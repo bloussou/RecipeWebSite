@@ -17,8 +17,8 @@ import { SearchDisplayComponent } from './search-display/search-display.componen
 import { SearchService } from './search.service';
 import { ModifRecipeComponent } from './modif-recipe/modif-recipe.component';
 import { ChatComponent } from './chat/chat.component';
-
-
+import { ChatService } from './chat.service';
+import { BetweenComponentComponent } from './between-component/between-component.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { ChatComponent } from './chat/chat.component';
     SearchComponent,
     SearchDisplayComponent,
     ModifRecipeComponent,
-    ChatComponent
+    ChatComponent,
+    BetweenComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,8 @@ import { ChatComponent } from './chat/chat.component';
   ],
   providers: [
     RecipeService,
-    SearchService
+    SearchService,
+    ChatService
   ],
   bootstrap: [
     AppComponent

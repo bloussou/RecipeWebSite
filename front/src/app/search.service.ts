@@ -9,7 +9,7 @@ import { of } from 'rxjs/observable/of';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type':  'application/json'
+    'Content-Type': 'application/json'
   })
 };
 
@@ -34,9 +34,9 @@ export class SearchService {
 
   getSearchResults(): Observable<Recette[]> {
     this.log('Adding new data entry to database');
-    return this.http.post<Recette[]>('http://localhost:8080/search/api/searchrecipe', this.search, httpOptions)
+    return this.http.post<Recette[]>('http://192.168.99.100:8080/search/api/searchrecipe', this.search, httpOptions)
       .pipe(
-        catchError(this.handleError<Recette[]>('searchRecipe'))
+      catchError(this.handleError<Recette[]>('searchRecipe'))
       );
   }
 
@@ -44,7 +44,7 @@ export class SearchService {
     console.log('SearchService: ' + message);
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

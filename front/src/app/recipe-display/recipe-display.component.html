@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 
 <div class="container">
-  <h1>{{recipe.name}} - {{recipe.difficulty}} - {{recipe.duration}}min de préparation</h1>
+  <h1>{{name}} - {{recipe.difficulty}} - {{recipe.duration}}min de préparation</h1>
 
   <div class="sous_container">
-      <table class="table" id="ingredients">
-          <tr>
-            <th>Ingrédients</th>
-            <th>Quantité</th>
-          </tr>
-          <tr *ngFor="let ingredient of recipe.ingredients">
-            <td> {{ingredient[0]}} </td>
-            <td> {{ingredient[1]}} </td>
-          </tr>
-      </table>
+    <table class="table" id="ingredients">
+      <tr>
+        <th>Ingrédients</th>
+        <th>Quantité</th>
+      </tr>
+      <tr *ngFor="let ingredient of recipe.ingredients">
+        <td> {{ingredient[0]}} </td>
+        <td> {{ingredient[1]}} </td>
+      </tr>
+    </table>
 
-      <div id="principal">
-          <h4> Instructions :   </h4>
-          <p>{{recipe.steps}}</p>
-      </div>
+    <div id="principal">
+      <h4> Instructions : </h4>
+      <p>{{recipe.steps}}</p>
+    </div>
   </div>
 
   <button class="btn btn-success" routerLink="/changerecipe/{{recipe._id}}">Modifier</button>
   <button class="btn btn-success" (click)="delRecipe()">Supprimer</button>
-
+  <app-chat [recette]="name"></app-chat>
 </div>
