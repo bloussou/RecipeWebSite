@@ -19,6 +19,7 @@ import { ModifRecipeComponent } from './modif-recipe/modif-recipe.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatService } from './chat.service';
 import { BetweenComponentComponent } from './between-component/between-component.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BetweenComponentComponent } from './between-component/between-component
     SearchDisplayComponent,
     ModifRecipeComponent,
     ChatComponent,
-    BetweenComponentComponent
+    BetweenComponentComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

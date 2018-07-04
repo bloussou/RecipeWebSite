@@ -5,20 +5,21 @@ let express = require('express'),
     recipes = require('./routes/recipes'),
     mongoose = require('mongoose'),
     search = require('./routes/search'),
+    authRouter = require('./routes/authRouter'),
     ip = require('ip'),
     ChatSchema = require('./models/Chat'),
     user = require('./models/User');
 
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://database:/recipes') //localhost/recipes
+mongoose.connect('mongodb://localhost/recipes') //localhost/recipes or //database/recipes
     .then(() => console.log('connection succesful bravo !')) //192.168.99.100:32768
     .catch((err) => console.error(err));
 
 
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://192.168.99.100:4200');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200'); //192.168.99.100:4200
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
@@ -26,8 +27,10 @@ app.use(function (req, res, next) {
 });
 app.use(express.json());
 
+require('./config/passport');
 app.use('/search', search);
 app.use('/recipes', recipes);
+app.use('/authRouter', authRouter);
 
 
 

@@ -2,12 +2,17 @@
     "name": "recettes-magiques",
     "version": "0.1.0",
     "dependencies": {
+        "crypto": "^1.0.1",
         "express": "~4.16.3",
+        "express-jwt": "^5.3.1",
         "ip": "~1.1.5",
+        "jsonwebtoken": "^8.3.0",
         "lint": "^1.1.2",
         "mongoose": "~5.1.6",
         "morgan": "~1.9.0",
         "nodemon": "1.17.5",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
         "socket.io": "^2.0.4"
     },
     "scripts": {
