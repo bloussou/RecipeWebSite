@@ -23,19 +23,19 @@ export class RecipeService {
   ) { }
 
   getRecipes(): Observable<Recette[]> {
-    return this.http.get<Recette[]>('http://192.168.99.100:8080/recipes/api/allrecipes');
+    return this.http.get<Recette[]>('http://localhost:8080/recipes/api/allrecipes'); //192.168.99.100:8080
   }
 
   getRecipe(_id: string): Observable<Recette> {
     // TODO: send the message _after_ fetching the hero
     this.log(`fetched recipe id=${_id}`);
-    return this.http.get<Recette>('http://192.168.99.100:8080/recipes/api/recipe/' + _id);
+    return this.http.get<Recette>('http://localhost:8080/recipes/api/recipe/' + _id);
   }
 
 
 
   updateRecipe(recipe: Recette): Observable<Recette> {
-    return this.http.put<Recette>('http://192.168.99.100:8080/recipes/api/updaterecipe/' + recipe._id, recipe, httpOptions)
+    return this.http.put<Recette>('http://localhost:8080/recipes/api/updaterecipe/' + recipe._id, recipe, httpOptions)
       .pipe(
       catchError(this.handleError<Recette>('updateRecipe'))
       );
@@ -43,7 +43,7 @@ export class RecipeService {
 
   delRecipe(recipe: Recette): Observable<Recette> {
     this.log('Deleting recipe ' + recipe.name + 'from database');
-    return this.http.delete<Recette>('http://192.168.99.100:8080/recipes/api/delrecipe/' + recipe._id, httpOptions)
+    return this.http.delete<Recette>('http://localhost:8080/recipes/api/delrecipe/' + recipe._id, httpOptions)
       .pipe(
       catchError(this.handleError<Recette>('delRecipe'))
       );
@@ -51,7 +51,7 @@ export class RecipeService {
 
   addRecipe(recipe: Recette): Observable<Recette> {
     this.log('Adding new data entry to database');
-    return this.http.post<Recette>('http://192.168.99.100:8080/recipes/api/postrecipe', recipe, httpOptions)
+    return this.http.post<Recette>('http://localhost:8080/recipes/api/postrecipe', recipe, httpOptions)
       .pipe(
       catchError(this.handleError<Recette>('postrecipe', recipe))
       );

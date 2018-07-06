@@ -10,7 +10,7 @@ import { Data } from './Data';
 @Injectable()
 export class ChatService {
   private socket;
-  private url = 'http://192.168.99.100:8080';
+  private url = 'http://localhost:8080'; //192.168.99.100:8080
 
   constructor() {
     this.socket = io(this.url);

@@ -14,7 +14,7 @@ import { ISubscription } from 'rxjs/Subscription';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit, OnDestroy {
+export class ChatComponent implements OnInit {
 
 
   @Input() recette: any;
@@ -26,7 +26,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   messageArray: Array<{ user: String, message: String }> = [];
   // SOCKET !
   private socket;
-  private url = 'http://192.168.99.100:8080';
+  private url = 'http://localhost:8080';
 
 
   constructor(private chatService: ChatService, private recipeDisplay: RecipeDisplayComponent) {
@@ -41,10 +41,6 @@ export class ChatComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
-  ngOnDestroy() {
-    console.log('dans le onDestroy');
-    this.subscription.unsubscribe();
-  }
 
   sendMessage() {
     this.data.room = this.recette;

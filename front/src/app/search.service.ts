@@ -34,7 +34,7 @@ export class SearchService {
 
   getSearchResults(): Observable<Recette[]> {
     this.log('Adding new data entry to database');
-    return this.http.post<Recette[]>('http://192.168.99.100:8080/search/api/searchrecipe', this.search, httpOptions)
+    return this.http.post<Recette[]>('http://localhost:8080/search/api/searchrecipe', this.search, httpOptions)
       .pipe(
       catchError(this.handleError<Recette[]>('searchRecipe'))
       );

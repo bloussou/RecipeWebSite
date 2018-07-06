@@ -1,18 +1,23 @@
 <body>
-    <div id="head-title">
-        <h1 routerLink="">Les Recettes de Ker Pedor</h1>
-    </div>
-    <div>
-      <app-search-field></app-search-field>
-    </div>
-    
-    <nav id="main-nav">
-      <ul>  
-        <li><a routerLink="/newrecipe">Nouvelle Recette</a></li>
-        <li><a routerLink="/allrecipe">Toutes les recettes</a></li>
-        <li><a routerLink="/search">Recherche avancée</a></li>
-      </ul>
-    </nav>
+  <div id="head-title">
+    <h1 routerLink="">Les Recettes de Ker Pedor</h1>
+    <button (click)="logout()">Logout</button>
+  </div>
+  <div>
+    <app-search-field></app-search-field>
+  </div>
+
+  <nav id="main-nav">
+    <ul>
+      <li>
+        <a routerLink="/newrecipe">Nouvelle Recette</a>
+      </li>
+      <li>
+        <a routerLink="/allrecipe">Toutes les recettes</a>
+      </li>
+      <li>
+        <a routerLink="/search">Recherche avancée</a>
+      </li>
+    </ul>
+  </nav>
 </body>
-  
-  

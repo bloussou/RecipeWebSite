@@ -1,9 +1,9 @@
 let express = require('express'),
     router = express.Router(),
     chat = require('../models/Chat');
-
+const auth = require('./auth');
 /* GET a chatroom */
-router.get('/api/chatrooms/:room', function (req, res, next) {
+router.get('/api/chatrooms/:room', auth.require, function (req, res, next) {
     let room = req.params.room;
     chatRooms.find({
         name: room

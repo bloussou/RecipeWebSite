@@ -1,0 +1,11 @@
+<form (submit)="SignIn()">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="password">
+  </div>
+  <button type="submit" class="btn btn-default">SignIn !</button>
+</form>

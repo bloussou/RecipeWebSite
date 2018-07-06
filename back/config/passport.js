@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
-const User = mongoose.model('User');
+const User = require('../models/User');
 
 passport.use(new LocalStrategy({
     usernameField: 'user[email]',
@@ -22,3 +22,5 @@ passport.use(new LocalStrategy({
             return done(null, user);
         }).catch(done);
 }))
+
+module.exports = passport;

@@ -5,6 +5,10 @@
         "crypto": "^1.0.1",
         "express": "~4.16.3",
         "express-jwt": "^5.3.1",
+        "express-session": "^1.15.6",
+        "gulp": "^3.9.1",
+        "gulp-minify": "^3.1.0",
+        "gulp-uglify-es": "^1.0.4",
         "ip": "~1.1.5",
         "jsonwebtoken": "^8.3.0",
         "lint": "^1.1.2",
@@ -20,5 +24,10 @@
         "build": "node app.js"
     },
     "author": "Pierre Averous <piaverous@gmail.com>",
-    "description": "Une site de gestion de BDD de recettes de cuisine"
+    "description": "Une site de gestion de BDD de recettes de cuisine",
+    "devDependencies": {
+        "gulp-concat": "^2.6.1",
+        "gulp-rename": "^1.3.0",
+        "gulp-uglify": "^3.0.0"
+    }
 }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const passport = require('passport');
+const passport = require('../config/passport');
 const authRouter = require('express').Router();
 const auth = require('./auth');
 const User = require('../models/User');
@@ -63,21 +63,12 @@ authRouter.post('/api/login', auth.optional, (req, res, next) => {
         });
     }
 
-    if (!user.password) {
-        return res.status(422).json({
-            errors: {
-                password: 'is required',
-            },
-        });
-    }
-
     return passport.authenticate('local', {
         session: false
     }, (err, passportUser, info) => {
         if (err) {
             return next(err);
         }
-
         if (passportUser) {
             const user = passportUser;
             user.token = passportUser.generateJWT();

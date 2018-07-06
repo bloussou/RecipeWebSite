@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-
+import { NgModule, ErrorHandler } from '@angular/core';
+import { RequestOptions } from '@angular/http';
+import { AuthErrorHandler } from './auth-error-handler';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchFieldComponent } from './search-field/search-field.component';
@@ -20,6 +21,11 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatService } from './chat.service';
 import { BetweenComponentComponent } from './between-component/between-component.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthService } from './auth.service';
+import { AuthRequestOptions } from './auth-request';
+import { SigninComponent } from './signin/signin.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,9 @@ import { AuthComponent } from './auth/auth.component';
     ModifRecipeComponent,
     ChatComponent,
     BetweenComponentComponent,
-    AuthComponent
+    AuthComponent,
+    SigninComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,17 @@ import { AuthComponent } from './auth/auth.component';
   providers: [
     RecipeService,
     SearchService,
-    ChatService
+    ChatService,
+    AuthService,
+    AuthGuard,
+    {
+      provide: RequestOptions,
+      useClass: AuthRequestOptions
+    },
+    {
+      provide: ErrorHandler,
+      useClass: AuthErrorHandler
+    }
   ],
   bootstrap: [
     AppComponent

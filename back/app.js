@@ -2,13 +2,17 @@ let express = require('express'),
     app = express(),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
+    path = require('path'),
     recipes = require('./routes/recipes'),
     mongoose = require('mongoose'),
     search = require('./routes/search'),
     authRouter = require('./routes/authRouter'),
     ip = require('ip'),
     ChatSchema = require('./models/Chat'),
-    user = require('./models/User');
+    user = require('./models/User'),
+    session = require('express-session');
+
+require('./config/passport');
 
 
 mongoose.Promise = global.Promise;
@@ -26,15 +30,23 @@ app.use(function (req, res, next) {
     next();
 });
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+    secret: 'passport-tutorial',
+    cookie: {
+        maxAge: 60000
+    },
+    resave: false,
+    saveUninitialized: false
+}));
 
-require('./config/passport');
+
 app.use('/search', search);
 app.use('/recipes', recipes);
 app.use('/authRouter', authRouter);
 
 
 
-//LOL !!!sskhvkjhv
 
 /* 'connection' is a socket.io event that is triggered when a new connection is 
        made. Once a connection is made, callback is called. */
