@@ -89,7 +89,6 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-
     const user = this.getUserDetails();
     if (user) {
       return user.exp > Date.now() / 1000;

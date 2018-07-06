@@ -1,7 +1,8 @@
 <body>
   <div id="head-title">
     <h1 routerLink="">Les Recettes de Ker Pedor</h1>
-    <button (click)="logout()">Logout</button>
+    <button *ngIf="!user()" (click)="logout()">Login</button>
+    <button *ngIf="user()" (click)="logout()">Logout</button>
   </div>
   <div>
     <app-search-field></app-search-field>
