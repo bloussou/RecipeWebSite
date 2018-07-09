@@ -57,9 +57,10 @@ io.on('connection', (socket) => {
     });
 
     socket.on('message', function (data) {
-        console.log('message : ' + data.message);
+        console.log(data.name + ' : ' + data.message);
         io.in(data.room).emit('new message', {
-            message: data.message
+            message: data.message,
+            name: data.name
         });
     });
 

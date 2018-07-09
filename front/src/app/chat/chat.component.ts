@@ -8,6 +8,7 @@ import { Data } from '../Data';
 
 import { ISubscription } from 'rxjs/Subscription';
 import { environment } from '../../environments/environment';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-chat',
@@ -16,7 +17,8 @@ import { environment } from '../../environments/environment';
 })
 export class ChatComponent implements OnInit {
 
-
+  private email: String;
+  date = Date.now();
   @Input() recette: any;
   data = new Data;
   datas: Data[] = [];
@@ -29,12 +31,13 @@ export class ChatComponent implements OnInit {
   private url = environment.SERVER_ADRESS;
 
 
-  constructor(private chatService: ChatService) {
+  constructor(private chatService: ChatService, private authService: AuthService) {
     this.socket = io(this.url);
     this.chatService
       .getMessages()
       .subscribe((data: Data) => {
         this.datas.push(data);
+        console.log(this.datas);
       });
   }
 
@@ -45,6 +48,8 @@ export class ChatComponent implements OnInit {
   sendMessage() {
     this.data.room = this.recette;
     this.data.message = this.message;
+    this.data.name = this.email;
+    console.log(this.data.name);
     this.chatService.sendMessage(this.data);
     this.data = new Data;
     this.message = '';
@@ -54,6 +59,7 @@ export class ChatComponent implements OnInit {
     this.data.room = this.recette;
     this.displayChat = true;
     this.chatService.joinroom(this.data);
+    this.email = this.authService.getUserDetails().email;
   }
 
 

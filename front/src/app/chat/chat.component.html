@@ -17,7 +17,11 @@
             <ul class="chat">
               <li class="left clearfix" *ngFor="let data of datas">
                 <div class="chat-body clearfix">
-
+                  <div class="header">
+                    <strong class="primary-font">{{data.name}}</strong>
+                    <small class="pull-right text-muted">
+                      <span class="glyphicon glyphicon-time"></span>{{date| date:'shortTime'}}</small>
+                  </div>
                   <p>
                     {{data.message}}
                   </p>

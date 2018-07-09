@@ -5,7 +5,7 @@ import { ChatComponent } from './chat.component';
 // Imports
 import { ChatService } from './../chat.service';
 import { FormsModule } from '@angular/forms';
-
+import { AuthService } from '../auth.service';
 import { Data } from '../Data';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -20,7 +20,7 @@ describe('ChatComponent', () => {
     ...chatServiceSpy,
     getMessages: Observable.of(...Array<Data>()),
   } as jasmine.SpyObj<Data>;
-
+  const authServiceSpy = jasmine.createSpyObj('AuthService', ['getCurrent']);
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ChatComponent],
@@ -28,6 +28,10 @@ describe('ChatComponent', () => {
         {
           provide: ChatService,
           useValue: chatServiceSpy
+        },
+        {
+          provide: AuthService,
+          useValue: authServiceSpy
         }
       ],
       imports: [FormsModule]
