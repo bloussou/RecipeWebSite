@@ -4,7 +4,6 @@ const authRouter = require('express').Router();
 const auth = require('./auth');
 const User = require('../models/User');
 
-
 // POST new user route (optional, evryone has access)
 authRouter.post('/api/User', auth.optional, (req, res, next) => {
     const {

@@ -6,6 +6,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { Search } from './search';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of } from 'rxjs/observable/of';
+import { environment } from '../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -34,7 +35,8 @@ export class SearchService {
 
   getSearchResults(): Observable<Recette[]> {
     this.log('Adding new data entry to database');
-    return this.http.post<Recette[]>('http://localhost:8080/search/api/searchrecipe', this.search, httpOptions)
+    return this.http.post<Recette[]>(environment.SERVER_ADRESS + '/search/api/searchrecipe',
+      this.search, httpOptions)
       .pipe(
       catchError(this.handleError<Recette[]>('searchRecipe'))
       );

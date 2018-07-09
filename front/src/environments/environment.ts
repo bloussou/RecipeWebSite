@@ -4,5 +4,12 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // LOCALHOST
+  SERVER_ADRESS: 'http://localhost:8080',
+  FRONT_ADRESS: 'http://localhost:4200'
+  // DOCKER
+  // SERVER_ADRESS: 'http://192.168.99.100:8080'
+  // FRONT_ADRESS: 'http://192.168.99.100:4200'
 };
+

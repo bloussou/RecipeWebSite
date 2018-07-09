@@ -9,6 +9,7 @@ import * as jwt_decode from 'jwt-decode';
 
 import { map } from 'rxjs/operators/map';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 export const TOKEN_NAME = 'jwt_token';
 
 const httpOptions = {
@@ -117,7 +118,7 @@ export class AuthService {
   }
 
   getCurrentUsers(): Observable<SignInResponse> {
-    const response = this.http.get<SignInResponse>('http://localhost:8080/authRouter/api/current');
+    const response = this.http.get<SignInResponse>(environment.SERVER_ADRESS + '/authRouter/api/current');
     const request = response.pipe(map((data: SignInResponse) => {
       if (data.user.token) {
         this.saveToken(data.user.token);
@@ -128,7 +129,7 @@ export class AuthService {
   }
 
   signIn(user: User): Observable<SignInResponse> {
-    const response = this.http.post<SignInResponse>('http://localhost:8080/authRouter/api/User', { user: user });
+    const response = this.http.post<SignInResponse>(environment.SERVER_ADRESS + '/authRouter/api/User', { user: user });
     const request = response.pipe(map((data: SignInResponse) => {
       if (data.user.token) {
         this.saveToken(data.user.token);
@@ -139,7 +140,7 @@ export class AuthService {
   }
 
   login(user: User): Observable<any> {
-    const response = this.http.post<any>('http://localhost:8080/authRouter/api/login', { user: user });
+    const response = this.http.post<any>(environment.SERVER_ADRESS + '/authRouter/api/login', { user: user });
     const request = response.pipe(map((res: { user: { _id: string, email: string, token: string } }) => {
       const data = res.user;
       if (data.token) {

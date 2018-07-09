@@ -7,6 +7,7 @@ import { Recette } from '../recette';
 import { Data } from '../Data';
 
 import { ISubscription } from 'rxjs/Subscription';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-chat',
@@ -25,7 +26,7 @@ export class ChatComponent implements OnInit {
   messageArray: Array<{ user: String, message: String }> = [];
   // SOCKET !
   private socket;
-  private url = 'http://localhost:8080';
+  private url = environment.SERVER_ADRESS;
 
 
   constructor(private chatService: ChatService) {

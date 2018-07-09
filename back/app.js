@@ -12,18 +12,17 @@ let express = require('express'),
     user = require('./models/User'),
     session = require('express-session');
 
+require('dotenv').config();
 require('./config/passport');
 
-
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/recipes') //localhost/recipes or //database/recipes
-    .then(() => console.log('connection succesful bravo !')) //192.168.99.100:32768
+mongoose.connect(process.env.DATABASE_ADDRESS)
+    .then(() => console.log('connection succesful bravo !'))
     .catch((err) => console.error(err));
 
 
-
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200'); //192.168.99.100:4200
+    res.setHeader('Access-Control-Allow-Origin', process.env.FRONT_ADRESS); //192.168.99.100:4200
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
@@ -44,7 +43,6 @@ app.use(session({
 app.use('/search', search);
 app.use('/recipes', recipes);
 app.use('/authRouter', authRouter);
-
 
 
 
@@ -109,6 +107,6 @@ app.get('/chatroom/:room', (req, res, next) => {
 });
 
 
-server.listen(8080, () => {
-    console.log('started on port 8080');
+server.listen(process.env.PORT, () => {
+    console.log('started on port ' + process.env.PORT);
 });
