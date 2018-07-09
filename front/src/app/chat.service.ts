@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
 import { Observable } from 'rxjs/Observable';
 // tslint:disable-next-line:import-blacklist
-import * as Rx from 'rxjs/Rx';
 import { environment } from '../environments/environment';
 import { Data } from './Data';
 

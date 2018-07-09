@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Search } from '../search';
 import { SearchService } from '../search.service';
+import { NouisliderModule } from 'ng2-nouislider';
+
 
 @Component({
   selector: 'app-search',
@@ -14,7 +16,7 @@ export class SearchComponent implements OnInit {
   difficulties = ['★', '★★', '★★★', '★★★★', '★★★★★'];
   dishtypes = ['Entrée', 'Plat', 'Dessert', 'Apéro', 'Snack', 'Boisson'];
   countries = ['Allemagne', 'France', 'Italie', 'Israel', 'Chine', 'Japon', 'Mexique',
-          'Chili', 'Brésil', 'Espagne', 'Portugal', 'Grece', 'Roumanie'];
+    'Chili', 'Brésil', 'Espagne', 'Portugal', 'Grece', 'Roumanie'];
 
   diffChecks: boolean[];
 
@@ -23,7 +25,7 @@ export class SearchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.search = new Search('', [ 0, 180 ], ['★', '★★', '★★★', '★★★★', '★★★★★'], '', '');
+    this.search = new Search('', [0, 180], ['★', '★★', '★★★', '★★★★', '★★★★★'], '', '');
     this.diffChecks = [true, true, true, true, true];
   }
 
@@ -32,7 +34,7 @@ export class SearchComponent implements OnInit {
   }
 
   searchDone(): void {
-    this.searchService.sendSearch( this.search );
+    this.searchService.sendSearch(this.search);
   }
 
   checkboxClick(checked: boolean, value: number): void {

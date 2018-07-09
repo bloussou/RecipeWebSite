@@ -2,15 +2,24 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuthComponent } from './auth.component';
 
+import { Component } from '@angular/core';
+
+@Component({ selector: 'app-login', template: '' })
+class AppLogginStubComponent { }
+
+@Component({ selector: 'app-signin', template: '' })
+class AppSigninStubComponent { }
+
+
 describe('AuthComponent', () => {
   let component: AuthComponent;
   let fixture: ComponentFixture<AuthComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthComponent ]
+      declarations: [AuthComponent, AppSigninStubComponent, AppLogginStubComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

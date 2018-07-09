@@ -1,9 +1,8 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChatService } from './../chat.service';
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import * as io from 'socket.io-client';
-import { RecipeDisplayComponent } from '../recipe-display/recipe-display.component';
 import { Recette } from '../recette';
 import { Data } from '../Data';
 
@@ -29,7 +28,7 @@ export class ChatComponent implements OnInit {
   private url = 'http://localhost:8080';
 
 
-  constructor(private chatService: ChatService, private recipeDisplay: RecipeDisplayComponent) {
+  constructor(private chatService: ChatService) {
     this.socket = io(this.url);
     this.chatService
       .getMessages()

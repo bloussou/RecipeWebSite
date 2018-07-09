@@ -30,9 +30,6 @@ export class RecipeDisplayComponent implements OnInit {
     this.getRecipeName();
   }
 
-  sendRecette(): Observable<Recette> {
-    return Observable.of(this.recipe);
-  }
 
   getRecipe(): void {
     const _id = this.route.snapshot.paramMap.get('id');

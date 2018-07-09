@@ -1,20 +1,28 @@
-# This file is a template, and might need editing before it works on your project.
-# Official framework image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/node/tags/
-image: node:latest
-
-# Pick zero or more services to be used on all builds.
-# Only needed when using a docker container to run your tests in.
-# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
-services:
-  - mongo:latest
-
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
   paths:
   - ./front/node_modules/
   - ./back/node_modules/
+
+back_build:
+  image: node:latest
+  stage: build
+  script:
+    - cd ./back
+    - npm install
+    - nohup npm start &
+    - echo "COUCOU"
+    - cd ..
+
+front_build:
+  image: trion/ng-cli-karma
+  stage: build
+  script:
+    - cd ./front
+    - npm install 
+    - ng build
+    - cd ..
 
 # test_back:
 #   script:
@@ -24,9 +32,14 @@ cache:
 #    - cd ../
 # c'est de la ***   
 
-test_ng: 
+front_test:
+  image: trion/ng-cli-karma
+  stage: test
   script:
-   - cd ./front/
-   - npm install
-   - ./node_modules/@angular/cli/bin/ng build --single-run=true --browsers PhantomJS --watch=false
-   - cd ../
+    - cd ./front
+    - npm install 
+    - ng e2e --progress false --watch=false
+    - ng test --watch=false
+    - cd ..
+
+

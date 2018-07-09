@@ -2,10 +2,19 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { SearchService } from './search.service';
 
+// Imports
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 describe('SearchService', () => {
+  const httpSpy = jasmine.createSpyObj('HttpClient', ['post']);
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SearchService]
+      providers: [SearchService,
+        {
+          provide: HttpClient,
+          useValue: httpSpy
+        }]
     });
   });
 
