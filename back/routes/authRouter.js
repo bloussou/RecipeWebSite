@@ -13,7 +13,7 @@ authRouter.post('/api/User', auth.optional, (req, res, next) => {
     } = req;
 
     if (!user.email) {
-        return res.statut(422).json({
+        return res.status(422).json({
             errors: {
                 email: 'is required',
             },
@@ -27,7 +27,26 @@ authRouter.post('/api/User', auth.optional, (req, res, next) => {
         });
     }
 
+    /// Contrôle si il existe déjà un utilisateur avec le même mail !
+
     const finalUser = new User(user);
+
+    User.count({
+        email: finalUser.email
+    }, (err, count) => {
+        if (err) {
+            return next(err);
+        }
+        if (count > 0) {
+            return res.status(422).json({
+                errors: {
+                    email: 'Already used',
+                },
+            });
+        }
+    });
+
+
     finalUser.setPassword(user.password);
 
     return finalUser.save()
@@ -45,6 +64,7 @@ authRouter.post('/api/login', auth.optional, (req, res, next) => {
             user
         }
     } = req;
+
 
     if (!user.email) {
         return res.status(422).json({
@@ -77,7 +97,9 @@ authRouter.post('/api/login', auth.optional, (req, res, next) => {
             });
         }
 
-        return status(400).info;
+        return res.status(400).json({
+            errors: 'Mauvais identifiants',
+        });
     })(req, res, next);
 });
 
