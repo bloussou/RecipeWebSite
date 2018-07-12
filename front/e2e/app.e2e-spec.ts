@@ -9,6 +9,6 @@ describe('public App', () => {
 
   it('should display the web site title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('LES RECETTES DE KER PEDOR');
+    expect(page.getParagraphText()).toEqual('Les Recettes de Ker Pedor');
   });
 });
