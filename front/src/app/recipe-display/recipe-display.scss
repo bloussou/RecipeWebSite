@@ -1,0 +1,171 @@
+@import "../../scss/variables";
+@import "../../scss/mixin";
+@import "../../scss/reset";
+// .container {
+//   margin-top: 1em;
+//   margin-bottom: 10em;
+//   display: flex;
+// }
+// .sous_container {
+//   display: flex;
+// }
+// BOUTONS
+.btn-supprimer {
+  position: relative;
+  border: 2px solid $red;
+  background-color: $red;
+  color: #fafafa;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    background-color: #fafafa;
+    color: transparentize($red, 0.3);
+    border: 2px solid transparentize($red, 0.3);
+  }
+}
+
+.btn-modifier {
+  position: relative;
+  border: 2px solid $blue_login;
+  background-color: $blue_login;
+  color: #fafafa;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover {
+    background-color: #fafafa;
+    color: transparentize($blue_login, 0.3);
+    border: 2px solid transparentize($blue_login, 0.3);
+  }
+}
+
+// STructure
+#display {
+  display: flex;
+  width: 100%;
+  height: 50vw;
+  flex-direction: row;
+  #left-display {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: $green_header;
+    height: 100%;
+  }
+  #right-part {
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    #title {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+      padding-left: 10%;
+      padding-top: 1%;
+      h2 {
+        text-decoration: underline;
+      }
+    }
+    #details {
+      display: flex;
+      flex-direction: row;
+      padding: 3%;
+      width: 100%;
+      h3 {
+        color: $blue_login;
+      }
+      #ingredients {
+        display: flex;
+        flex-direction: column;
+        table {
+          padding: 0;
+          margin: 0;
+          border-collapse: collapse;
+          background-color: $green_header;
+          th,
+          td {
+            border: 1px solid black;
+          }
+        }
+      }
+      #instructions {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        padding-left: 10%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #display {
+    display: flex;
+    width: 100%;
+    height: 50vw;
+    flex-direction: column;
+    #left-display {
+      display: flex;
+      flex-direction: column;
+      color: white;
+      background-color: $green_header;
+      height: 100%;
+    }
+    #right-part {
+      display: flex;
+      flex-direction: column;
+      width: 85vw;
+      #title {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        padding-left: 10%;
+        padding-top: 1%;
+        h2 {
+          text-decoration: underline;
+        }
+      }
+      #details {
+        display: flex;
+        flex-direction: column;
+        padding: 3%;
+        width: 100%;
+        margin-bottom: 10em;
+        h3 {
+          color: $blue_login;
+        }
+        #ingredients {
+          display: flex;
+          flex-direction: column;
+          table {
+            padding: 0;
+            margin: 0;
+            border-collapse: collapse;
+            background-color: $green_header;
+            th,
+            td {
+              border: 1px solid black;
+            }
+          }
+        }
+        #instructions {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          padding-left: 10%;
+        }
+      }
+    }
+  }
+}

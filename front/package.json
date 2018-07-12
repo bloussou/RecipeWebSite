@@ -12,15 +12,17 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.2.0",
+    "@angular/animations": "^5.2.11",
+    "@angular/cdk": "^6.3.3",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
     "@angular/forms": "^5.2.0",
     "@angular/http": "^5.2.0",
-    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser": "^5.2.11",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "angular5-toaster": "^1.0.2",
     "bootstrap": "^4.1.1",
     "core-js": "^2.4.1",
     "intl": "^1.2.5",
@@ -32,6 +34,7 @@
     "rxjs": "^5.5.6",
     "socket.io-client": "^2.0.4",
     "testing": "^1.1.1",
+    "toastr": "^2.1.4",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {

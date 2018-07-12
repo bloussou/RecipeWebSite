@@ -15,14 +15,14 @@ authRouter.post('/api/User', auth.optional, (req, res, next) => {
     if (!user.email) {
         return res.status(422).json({
             errors: {
-                email: 'is required',
+                msg: 'Email is required',
             },
         });
     }
     if (!user.password) {
         return res.status(422).json({
             errors: {
-                password: 'is required',
+                msg: 'Password is required',
             },
         });
     }
@@ -40,7 +40,7 @@ authRouter.post('/api/User', auth.optional, (req, res, next) => {
         if (count > 0) {
             return res.status(422).json({
                 errors: {
-                    email: 'Already used',
+                    msg: 'Email Already used',
                 },
             });
         }
@@ -69,7 +69,7 @@ authRouter.post('/api/login', auth.optional, (req, res, next) => {
     if (!user.email) {
         return res.status(422).json({
             errors: {
-                email: 'is required',
+                msg: 'Email is required',
             },
         });
     }
@@ -77,7 +77,7 @@ authRouter.post('/api/login', auth.optional, (req, res, next) => {
     if (!user.password) {
         return res.status(422).json({
             errors: {
-                email: 'is required',
+                msg: 'Password is required',
             },
         });
     }
@@ -98,7 +98,9 @@ authRouter.post('/api/login', auth.optional, (req, res, next) => {
         }
 
         return res.status(400).json({
-            errors: 'Mauvais identifiants',
+            errors: {
+                msg: 'Mauvais identifiants'
+            },
         });
     })(req, res, next);
 });

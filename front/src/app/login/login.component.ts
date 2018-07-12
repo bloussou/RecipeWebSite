@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,7 +29,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.entry).subscribe(() => {
       this.router.navigate(['/allrecipe']);
     }, (err) => {
-      console.log(err);
+      alert(err.error.errors.msg);
     });
   }
+
+  // tslint:disable-next-line:member-ordering
+
 }

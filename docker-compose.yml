@@ -11,6 +11,7 @@ services:
       - "4200:4200" # specify port forewarding
 
   express: #name of the second service
+    #environments: DATABASE_URL:
     build: back # specify the directory of the Dockerfile
     volumes:
       - './back:/usr/src/app'

@@ -1,49 +1,45 @@
-<button (click)="Clicked()">Afficher le chat de la recette</button>
+<button id="open" (click)="Clicked()">Afficher le chat de la recette</button>
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 <div *ngIf="displayChat">
   <div class="container" id="beau_chat">
-    <div class="row">
-      <div class="col-md-5">
-        <div class="panel panel-primary">
-          <div class="panel-heading" id="accordion">
-            <span class="glyphicon glyphicon-comment"></span> Chat
-          </div>
-
-          <div class="panel-body">
-            <ul class="chat">
-              <li class="left clearfix" *ngFor="let data of datas">
-                <div class="chat-body clearfix">
-                  <div class="header">
-                    <strong class="primary-font">{{data.name}}</strong>
-                    <small class="pull-right text-muted">
-                      <span class="glyphicon glyphicon-time"></span>{{date| date:'shortTime'}}</small>
-                  </div>
-                  <p>
-                    {{data.message}}
-                  </p>
-                </div>
-              </li>
 
 
-            </ul>
-          </div>
-          <div class="panel-footer">
-            <div class="input-group">
-              <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." [(ngModel)]="message"
-                name="message" value="send" />
-              <span class="input-group-btn">
-                <button class="btn btn-warning btn-sm" id="btn-chat" type="submit" label="send" (click)="sendMessage()">
-                  Send</button>
-              </span>
-            </div>
-          </div>
-
-        </div>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4>Chat</h4>
       </div>
+
+      <div class="panel-body">
+        <ul class="chat">
+          <li class="left" *ngFor="let data of datas">
+            <div class="chat-body">
+              <div class="header">
+                <strong class="primary-font">{{data.name}}</strong>
+                <p class="time">{{date| date:'shortTime'}}</p>
+              </div>
+              <p>
+                {{data.message}}
+              </p>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+      <div class="panel-footer">
+        <form>
+          <div class="input-group">
+            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." [(ngModel)]="message"
+              name="message" value="send" />
+            <span class="input-group-btn">
+              <button class="btn btn-warning btn-sm" id="btn-chat" type="submit" label="send" (click)="sendMessage()">
+                Send</button>
+
+            </span>
+          </div>
+        </form>
+      </div>
+
     </div>
   </div>
 </div>

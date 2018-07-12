@@ -1,0 +1,19 @@
+.auth-modules {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 5%;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 600px) {
+  .auth-modules {
+    float: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+}

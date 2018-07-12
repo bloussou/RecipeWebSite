@@ -1,0 +1,88 @@
+@import "../../scss/variables";
+@import "../../scss/mixin";
+@import "../../scss/reset";
+.container {
+  margin-top: 1em;
+  margin-bottom: 10em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  position: relative;
+  border: 2px solid $blue_login;
+  background-color: $blue_login;
+  color: #fafafa;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+button:disabled {
+  border: 2px solid transparentize($blue_login, 0.3);
+  background-color: transparentize($blue_login, 0.3);
+  color: #fafafa;
+}
+
+button:hover:enabled {
+  background-color: #fafafa;
+  color: $blue_login;
+  border: 2px solid $blue_login;
+}
+
+button:after {
+  content: "";
+  background: #ff87db;
+  color: #fafafa;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+#ingredients_qte {
+  display: flex;
+}
+
+#addingredient {
+  width: 470px;
+}
+
+.slidecontainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  margin-left: 1em;
+}
+
+nouislider {
+  width: 80%;
+  margin: 0em 1.5em 0em 1.5em;
+  color: transparentize($yellow_flash, 0.5);
+}
+
+li {
+  list-style: none;
+}
+
+.delcross:hover {
+  color: #777777;
+  cursor: pointer;
+}

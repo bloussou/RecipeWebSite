@@ -1,0 +1,23 @@
+@import "../../scss/variables";
+@import "../../scss/mixin";
+@import "../../scss/reset";
+.container {
+  margin-top: 1em;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: transparentize($blue_login, 0.5);
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+.element:hover {
+  cursor: pointer;
+  color: white;
+  background-color: $green_header;
+}

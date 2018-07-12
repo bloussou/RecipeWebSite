@@ -1,14 +1,27 @@
 <body>
   <div id="head-title">
     <h1 routerLink="">Les Recettes de Ker Pedor</h1>
-    <button *ngIf="!user()" (click)="logout()">Login</button>
-    <button *ngIf="user()" (click)="logout()">Logout</button>
+    <p>Les
+      <b>meilleures</b> recettes de l'histoire. </p>
+    <div id="buttons">
+      <button class="logbutton" *ngIf="!user()" (click)="logout()">Login</button>
+      <button class="logbutton" *ngIf="user()" (click)="logout()">Logout</button>
+    </div>
   </div>
   <div>
-    <app-search-field></app-search-field>
+
   </div>
 
-  <nav id="main-nav">
+  <div class="navbar">
+    <a routerLink="/newrecipe">Nouvelle Recette</a>
+    <a routerLink="/allrecipe">Toutes les recettes</a>
+    <a routerLink="/search">Recherche avancée</a>
+    <div class="search-container">
+      <app-search-field></app-search-field>
+    </div>
+
+  </div>
+  <!-- <nav id="main-nav">
     <ul>
       <li>
         <a routerLink="/newrecipe">Nouvelle Recette</a>
@@ -20,5 +33,5 @@
         <a routerLink="/search">Recherche avancée</a>
       </li>
     </ul>
-  </nav>
+  </nav> -->
 </body>

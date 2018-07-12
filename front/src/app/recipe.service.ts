@@ -5,12 +5,8 @@ import { of } from 'rxjs/observable/of';
 import { catchError, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../environments/environment';
+import { AuthService } from './auth.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json'
-  })
-};
 
 
 @Injectable()
@@ -18,9 +14,16 @@ export class RecipeService {
 
   recipe: Recette;
   recipes: Recette[];
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Token ' + this.authservice.getToken()
+    })
+  };
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private authservice: AuthService
   ) { }
 
   getRecipes(): Observable<Recette[]> {
@@ -36,7 +39,7 @@ export class RecipeService {
 
 
   updateRecipe(recipe: Recette): Observable<Recette> {
-    return this.http.put<Recette>(environment.SERVER_ADRESS + '/recipes/api/updaterecipe/' + recipe._id, recipe, httpOptions)
+    return this.http.put<Recette>(environment.SERVER_ADRESS + '/recipes/api/updaterecipe/' + recipe._id, recipe, this.httpOptions)
       .pipe(
       catchError(this.handleError<Recette>('updateRecipe'))
       );
@@ -44,7 +47,7 @@ export class RecipeService {
 
   delRecipe(recipe: Recette): Observable<Recette> {
     this.log('Deleting recipe ' + recipe.name + 'from database');
-    return this.http.delete<Recette>(environment.SERVER_ADRESS + '/recipes/api/delrecipe/' + recipe._id, httpOptions)
+    return this.http.delete<Recette>(environment.SERVER_ADRESS + '/recipes/api/delrecipe/' + recipe._id, this.httpOptions)
       .pipe(
       catchError(this.handleError<Recette>('delRecipe'))
       );
@@ -52,7 +55,7 @@ export class RecipeService {
 
   addRecipe(recipe: Recette): Observable<Recette> {
     this.log('Adding new data entry to database');
-    return this.http.post<Recette>(environment.SERVER_ADRESS + '/recipes/api/postrecipe', recipe, httpOptions)
+    return this.http.post<Recette>(environment.SERVER_ADRESS + '/recipes/api/postrecipe', recipe, this.httpOptions)
       .pipe(
       catchError(this.handleError<Recette>('postrecipe', recipe))
       );

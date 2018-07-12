@@ -26,7 +26,6 @@ import { AuthRequestOptions } from './auth-request';
 import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +41,7 @@ import { AuthGuard } from './auth.guard';
     BetweenComponentComponent,
     AuthComponent,
     SigninComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

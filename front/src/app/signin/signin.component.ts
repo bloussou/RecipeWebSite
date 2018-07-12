@@ -28,7 +28,7 @@ export class SigninComponent implements OnInit {
     this.authservice.signIn(this.entry).subscribe(() => {
       this.router.navigate(['allrecipe']);
     }, (err) => {
-      console.log(err);
+      alert(err.error.errors.msg);
     });
   }
 

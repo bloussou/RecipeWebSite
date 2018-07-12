@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 
 <div class="container">
-  <h1>Entrez une nouvelle recette</h1>
+  <div id="title">
+    <h1>Entrez une nouvelle recette</h1>
+  </div>
+
 
   <form (ngSubmit)="newRecipe()" #recipeForm="ngForm">
     <div class="form-group">
       <label for="nom">Nom de la recette</label>
-      <input type="text" class="form-control" id="nom" required  [(ngModel)]="model.name" name="nom" placeholder="Riz nature">
+      <input type="text" class="form-control" id="nom" required [(ngModel)]="model.name" name="nom" placeholder="Riz nature">
     </div>
 
     <div class="form-group">
       <label for="duree">Durée de préparation</label>
       <div class="slidecontainer">
-          <p>{{model.duration}}min</p> <nouislider [min]="5" [max]="180" [step]="5" [(ngModel)]="model.duration" name="nouislider"></nouislider> 
+        <p>{{model.duration}}min</p>
+        <nouislider [min]="5" [max]="180" [step]="5" [(ngModel)]="model.duration" name="nouislider"></nouislider>
       </div>
     </div>
 
-    <div class="form-group">  
+    <div class="form-group">
       <label for="difficulte">Difficulté</label>
       <select class="form-control" [(ngModel)]="model.difficulty" name="difficulty">
         <option value="" disabled="disabled" selected="selected">Choisissez une difficulté</option>
         <option *ngFor="let diff of difficulties" [value]="diff" name="diff">{{diff}}</option>
-      </select>    
+      </select>
 
     </div>
 
     <div class="form-group">
       <label for="origine">Origine</label>
       <select class="form-control" [(ngModel)]="model.origin" name="origin">
-        <option value="" disabled="disabled" selected="selected">Choisissez une origine</option>  
+        <option value="" disabled="disabled" selected="selected">Choisissez une origine</option>
         <option *ngFor="let ctr of countries" [value]="ctr" name="ctr">{{ctr}}</option>
-      </select>    
+      </select>
     </div>
 
     <div class="form-group">
@@ -38,34 +42,25 @@
       <select class="form-control" [(ngModel)]="model.type" name="type">
         <option value="" disabled="disabled" selected="selected">Choisissez un type de plat</option>
         <option *ngFor="let plat of dishtypes" [value]="plat" name="plat">{{plat}}</option>
-      </select>    
+      </select>
     </div>
 
     <div class="form-group">
       <label for="ingredient">Ingrédients et quantité</label>
       <div id="ingredients_qte">
-        <input type="text" class="form-control" id="ingredient" name="ingredient" #nouvelIngredient 
-                placeholder="Riz" [(ngModel)]="modelIngredient[0]">
-        <input type="text" class="form-control" id="quantite" name="quantite" #nouvelleQuantite 
-                placeholder="100g" [(ngModel)]="modelIngredient[1]">
-        <button type="button" class="btn btn-success" 
-            [disabled]="!isValidIngredient()"
-            (click)="model.ingredients.push([nouvelIngredient.value, nouvelleQuantite.value]); modelIngredient=['',''];" 
-            id="addingredient">
-            Ajouter un ingrédient </button>
+        <input type="text" class="form-control" id="ingredient" name="ingredient" #nouvelIngredient placeholder="Riz" [(ngModel)]="modelIngredient[0]">
+        <input type="text" class="form-control" id="quantite" name="quantite" #nouvelleQuantite placeholder="100g" [(ngModel)]="modelIngredient[1]">
+        <button type="button" class="btn btn-success" [disabled]="!isValidIngredient()" (click)="model.ingredients.push([nouvelIngredient.value, nouvelleQuantite.value]); modelIngredient=['',''];"
+          id="addingredient">
+          Ajouter un ingrédient </button>
       </div>
       <ul>
         <li *ngFor="let ingredient of model.ingredients">
-            <span class="delcross" (click)="delIngredient(ingredient[0], ingredient[1])">✘</span>    
-            {{ingredient[0]}}, quantité: {{ingredient[1]}}
+          <span class="delcross" (click)="delIngredient(ingredient[0], ingredient[1])">✘</span>
+          {{ingredient[0]}}, quantité: {{ingredient[1]}}
         </li>
       </ul>
     </div>
-
-    <div class="form-group">
-        <label for="etapes">Ajouter une photo</label><br/>
-        <input type="file" name="pic" accept="image/*" class="btn btn-file">      
-      </div>
 
     <div class="form-group">
       <label for="etapes">Etapes de préparation</label>

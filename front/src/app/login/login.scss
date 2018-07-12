@@ -1,0 +1,31 @@
+@import "../../scss/variables";
+@import "../../scss/mixin";
+@import "../../scss/reset";
+.logbox {
+  display: flex;
+  background-color: $yellow;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    input {
+      margin: 1vw;
+      width: 30vw;
+    }
+  }
+  button {
+    padding: 6px 0 6px 0;
+    font: bold 13px Arial;
+    background: $blue_login;
+    color: #fff;
+    border-radius: 2px;
+    width: 100px;
+    margin: 1vw;
+    border: none;
+  }
+}

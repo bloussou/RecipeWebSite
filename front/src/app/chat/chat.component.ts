@@ -57,9 +57,14 @@ export class ChatComponent implements OnInit {
 
   Clicked() {
     this.data.room = this.recette;
-    this.displayChat = true;
-    this.chatService.joinroom(this.data);
-    this.email = this.authService.getUserDetails().email;
+    if (this.displayChat === false) {
+      this.displayChat = true;
+      this.chatService.joinroom(this.data);
+      this.email = this.authService.getUserDetails().email;
+    } else {
+      this.displayChat = false;
+    }
+
   }
 
 
