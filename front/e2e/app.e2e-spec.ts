@@ -7,7 +7,7 @@ describe('public App', () => {
     page = new AppPage();
   });
 
-  it('should display the web site title', () => {
+  it('should display the web site title ', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Les Recettes de Ker Pedor');
   });
