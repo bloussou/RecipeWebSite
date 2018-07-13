@@ -3,10 +3,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChatComponent } from './chat.component';
 
 // Imports
-import { ChatService } from './../chat.service';
+import { ChatService } from '../Services/chat.service';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
-import { Data } from '../Data';
+import { AuthService } from '../Services/auth.service';
+import { Data } from '../models/Data';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 

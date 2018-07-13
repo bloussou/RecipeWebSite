@@ -86,12 +86,13 @@ io.on('connection', (socket) => {
             io.to(data.room).emit('new_message', msg);
         });
     });
-    socket.emit('news', {
-        hello: 'world'
-    });
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
+    socket.on('typing', (data) => {
+        io.emit('typing', {
+            data: data,
+            isTyping: true
+        });
+    })
+
 });
 
 app.get('/chatroom/:room', (req, res, next) => {

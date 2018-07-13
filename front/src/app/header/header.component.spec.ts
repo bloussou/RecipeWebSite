@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../Services/auth.service';
 import { Component } from '@angular/core';
 
 

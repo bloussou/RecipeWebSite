@@ -28,8 +28,11 @@
       </div>
       <div class="panel-footer">
         <form>
+          <div *ngIf=isTyping id="typing">
+            <p>Quelqu'un est en train d'écrire</p>
+          </div>
           <div class="input-group">
-            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." [(ngModel)]="message"
+            <input id="btn-input" (keypress)="typing()" type="text" class="form-control input-sm" placeholder="Ecrivez ici..." [(ngModel)]="message"
               name="message" value="send" />
             <span class="input-group-btn">
               <button class="btn btn-warning btn-sm" id="btn-chat" type="submit" label="send" (click)="sendMessage()">

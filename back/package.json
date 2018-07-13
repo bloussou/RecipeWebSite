@@ -24,8 +24,8 @@
         "start": "nodemon app.js",
         "build": "node app.js"
     },
-    "author": "Pierre Averous <piaverous@gmail.com>",
-    "description": "Une site de gestion de BDD de recettes de cuisine",
+    "author": "Brieuc Loussouarn",
+    "description": "Une site de mise en forme de bdd cuisine",
     "devDependencies": {
         "gulp-concat": "^2.6.1",
         "gulp-rename": "^1.3.0",

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
-import { AuthService } from './auth.service';
+
+
+import { AuthService } from './Services/auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -9,7 +11,8 @@ export class AuthGuard implements CanActivate {
         private router: Router,
         private authService: AuthService) { }
 
-    canActivate() {
+    /**Canactivate method allow front access if user is login */
+    canActivate(): boolean {
         if (!this.authService.isLoggedIn()) {
             this.router.navigate(['auth']);
             return false;

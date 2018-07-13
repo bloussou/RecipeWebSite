@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NewRecipeComponent } from './new-recipe/new-recipe.component';
-import { DisplayComponent } from './display/display.component';
-import { RecipeDisplayComponent } from './recipe-display/recipe-display.component';
-import { SearchComponent } from './search/search.component';
-import { SearchDisplayComponent } from './search-display/search-display.component';
-import { ModifRecipeComponent } from './modif-recipe/modif-recipe.component';
+
+// Components imports
+import { NewRecipeComponent } from './recipeComponents/new-recipe/new-recipe.component';
+import { DisplayComponent } from './recipeComponents/display/display.component';
+import { RecipeDisplayComponent } from './recipeComponents/recipe-display/recipe-display.component';
+import { SearchComponent } from './SearchComponents/search/search.component';
+import { SearchDisplayComponent } from './SearchComponents/search-display/search-display.component';
+import { ModifRecipeComponent } from './recipeComponents/modif-recipe/modif-recipe.component';
 import { ChatComponent } from './chat/chat.component';
-import { AuthComponent } from './auth/auth.component';
-import { LoginComponent } from './login/login.component';
+import { AuthComponent } from './authentification/auth/auth.component';
+
+// Services imports 
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
